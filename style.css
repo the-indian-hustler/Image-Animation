@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: azure;
+  cursor: grabbing;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.container span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* Increased size for better hover effect */
+  width: 60px; /* Increased size for better hover effect */
+  border-radius: 50%;
+  background-color: green;
+  margin: 5px; /* Added margin for spacing between circles */
+}
+
+.container span::before {
+  content: '';
+  background: url(nature.jpg); /* Adjust image URL */
+  height: 200%; /* Increased size for better hover effect */
+  width: 200%; /* Increased size for better hover effect */
+  position: absolute;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Added transform transition */
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5); /* Initial scale for transition effect */
+}
+
+.container span:hover::before {
+  opacity: 1;
+  transform: scale(1); /* Enlarge the image on hover */
+}
